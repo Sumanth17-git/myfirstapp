@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: gcr.io/<project-id>/springboot:7
+        image: gcr.io/decent-creek-369909/springboot:7
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

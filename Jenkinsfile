@@ -26,12 +26,14 @@ node {
                 {
                     withCredentials([usernamePassword(credentialsId: 'gitlogin', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                        sh "git config user.email Sumanth.suman17@gmail.com"
-                        sh "git config user.name sumanth17"
+			sh "git remote set-url origin git+ssh://git@github.com:Sumanth17-git/myfirstapp.git"
+			sh "git remote add origin git@github.com:Sumanth17-git/myfirstapp.git"
+                        sh "git config --global user.email "sumanth.suman17@gmail.com"
+                        sh "git config --global user.name "Sumanth17""
                         sh "sed -i 's+decent-creek-369909/springboot.*+decent-creek-369909/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
-                        sh "git add ."
+                        sh "git add -A"
                         sh "git commit -m 'jenkinsbuild: ${env.BUILD_NUMBER}'"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/myfirstapp.git HEAD:master"
+                        sh "git push origin main"
                 }
                     
                   }

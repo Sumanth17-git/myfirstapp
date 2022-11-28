@@ -28,7 +28,7 @@ node {
                         def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
 			sh "git remote set-url origin git@github.com:Sumanth17-git/myfirstapp.git"
 			sh "git remote add origin git@github.com:Sumanth17-git/myfirstapp.git"
-                        sh "git config --global user.email "sumanth.suman17@gmail.com"
+                        sh "git config --global user.email "sumanth.suman17@gmail.com""
                         sh "git config --global user.name "Sumanth17""
                         sh "sed -i 's+decent-creek-369909/springboot.*+decent-creek-369909/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
                         sh "git add -A"

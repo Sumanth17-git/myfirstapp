@@ -28,7 +28,7 @@ node {
                         def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                         sh "git config user.email Sumanth.suman17@gmail.com"
                         sh "git config user.name sumanth17"
-                        sh "sed -i 's+<gcp-project-id>/springboot.*+<gcp-project-id>/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
+                        sh "sed -i 's+decent-creek-369909/springboot.*+decent-creek-369909/springboot:${env.BUILD_NUMBER}+g' spring-boot.yaml"
                         sh "git add ."
                         sh "git commit -m 'jenkinsbuild: ${env.BUILD_NUMBER}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/myfirstapp.git HEAD:master"

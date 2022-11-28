@@ -15,7 +15,7 @@ node {
     }
 
     stage('Push image to gcr') {
-        docker.withRegistry('https://gcr.io', 'gcr:my-credential-id') {
+        docker.withRegistry('https://gcr.io', 'gcr:gcp') {
             app.push("${env.BUILD_NUMBER}")
         }
     }
